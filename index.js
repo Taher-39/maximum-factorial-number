@@ -1,10 +1,10 @@
 /* main function */
 function maxFactorialNumber(array, n) {
     let QuotientArray = [];
-    for (let i = 0; i < array.length; i++) {
-        const Quotient = Math.ceil(array[i] / n);
+    array.forEach(element => {
+        let Quotient = Math.floor(element / n);
         QuotientArray.push(Quotient)
-    }
+    });
     
     let factorialQuotient = factorializeArray(QuotientArray);
 
@@ -16,10 +16,10 @@ function maxFactorialNumber(array, n) {
 /* get new factorialize array */
 function factorializeArray(newArray) {
     let factorialQuotient = []
-    for (let j = 0; j < newArray.length; j++) {
-        let factorial = factorialize(newArray[j]);
+    newArray.forEach(item => {
+        let factorial = factorialize(item);
         factorialQuotient.push(factorial);
-    }
+    });
 
     return factorialQuotient;
 }
@@ -45,6 +45,6 @@ function maxArray(arr) {
     return maxElement;
 };
 
-const arr = [1, 0, 8, 16];
+const arr = [1, 4, 7, 16];
 const result = maxFactorialNumber(arr, 4);
 console.log(result);
